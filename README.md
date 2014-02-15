@@ -1,7 +1,8 @@
 U10216014_HW11.2
 ================
 The homework hava five classes.
-                                         All class's data field:
+
+All class's data field:
                                          
 The relation is      Person              Preson: name, address, phone number, email address.
                         |                Student: class status
