@@ -215,7 +215,7 @@ class MyDate{
 	int year;
 	int month;
 	int day;
-	long elapsedTime;
+	long myElapsedTime;
 
 	// No-arg constructor can get the current tine.
 	MyDate() {
@@ -231,7 +231,7 @@ class MyDate{
 	MyDate(long newElapsedTime) {
 		setDate(newElapsedTime);		
 		GregorianCalendar myDate2 = new GregorianCalendar();
-		myDate2.setTimeInMillis(elapsedTime);
+		myDate2.setTimeInMillis(myElapsedTime);
 		this.year = myDate2.get(GregorianCalendar.YEAR);
 		this.month = myDate2.get(GregorianCalendar.MONTH);
 		this.day = myDate2.get(GregorianCalendar.DAY_OF_MONTH);		
@@ -261,7 +261,7 @@ class MyDate{
 	}
 
 	// The method can set the elapsed time.
-	public void setDate(long newElapsedTime) {
-		this.elapsedTime = newElapsedTime;
+	public void setDate(long elapsedTime) {
+		this.myElapsedTime = elapsedTime;
 	} 
 }
