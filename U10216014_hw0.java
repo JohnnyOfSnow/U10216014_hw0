@@ -15,7 +15,7 @@
  */
 import java.util.*;
 
-public class Display{
+public class U10216014_hw0{
 	public static void main(String[] args) {
 
 		// to invoke every class's toString method.
