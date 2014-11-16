@@ -20,10 +20,15 @@ public class U10216014_hw0{
 
 		// to invoke every class's toString method.
 		System.out.println(new Person().toString());
+		System.out.println("-----------------------\n");
 		System.out.println(new Student().toString());
+		System.out.println("-----------------------\n");
 		System.out.println(new Employee().toString());
+		System.out.println("-----------------------\n");
 		System.out.println(new Faculty().toString());
+		System.out.println("-----------------------\n");
 		System.out.println(new Staff().toString());
+		System.out.println("-----------------------\n");
 	}
 }
 
@@ -77,7 +82,10 @@ class Person {
 	// Override the Object's method toString.
 	@Override
 	public String toString(){
-		return "Person " + name;
+		return "Class: Person \nThe person name is " + getName() 
+		+ "\naddress is " + getAddress()
+		+ "\nphoneNumber is " + getPhoneNumber()
+		+ "\nemail is " + getEmail();
 	}
 }
 
@@ -106,7 +114,28 @@ class Student extends Person {
 	// Override the Object's method toString.
 	@Override
 	public String toString(){
-		return "Student " + getName();
+		String a = "";
+		switch(status){
+			case 1:
+				a = "FRESHMAN";
+			break;
+			case 2:
+				a = "SOPHOMORE";
+			break;
+			case 3:
+				a = "JUNIOR";
+			break;
+			case 4:
+				a = "SENIOR";
+			break;
+			default:
+				a = "No choice";
+		}
+		return "Class: Student \nThe person name is " + getName() 
+		+ "\naddress is " + getAddress()
+		+ "\nphoneNumber is " + getPhoneNumber()
+		+ "\nemail is " + getEmail()
+		+ "\nstatus is " + a;
 	}
 }
 
@@ -139,14 +168,21 @@ class Employee extends Person {
 		return salary;
 	}
 
-	public void getHiredDay(){
-		new MyDate(); //Create a object, and print the current time for data hired.
+	public static String getHiredDay(){
+		MyDate i = new MyDate();
+		return i.getDate();	
 	}
 
 	// Override the Object's method toString.
 	@Override
 	public String toString(){		
-		return "Employee " + getName();
+		return "Class: Employee \nThe person name is " + getName() 
+		+ "\naddress is " + getAddress()
+		+ "\nphoneNumber is " + getPhoneNumber()
+		+ "\nemail is " + getEmail()
+		+ "\noffice is " + getOffice()
+		+ "\nsalary is " + getSalary()
+		+ "\nhiredDay is " + getHiredDay();
 	}
 }
 
@@ -181,7 +217,15 @@ class Faculty extends Employee {
 	// Override the Object's method toString.
 	@Override
 	public String toString(){
-		return "Faculty " + getName();
+		return "Class: Faculty \nThe person name is " + getName() 
+		+ "\naddress is " + getAddress()
+		+ "\nphoneNumber is " + getPhoneNumber()
+		+ "\nemail is " + getEmail()
+		+ "\noffice is " + getOffice()
+		+ "\nsalary is " + getSalary()
+		+ "\nhiredDay is " + getHiredDay()
+		+ "\nofficeHour is " + getOfficeHour()
+		+ "\nrank is " + getRank();
 	}
 }
 
@@ -206,7 +250,14 @@ class Staff extends Employee {
 	// Override the Object's method toString.
 	@Override
 	public String toString(){
-		return "Staff " + getName();
+		return "Class: Staff \nThe person name is " + getName() 
+		+ "\naddress is " + getAddress()
+		+ "\nphoneNumber is " + getPhoneNumber()
+		+ "\nemail is " + getEmail()
+		+ "\noffice is " + getOffice()
+		+ "\nsalary is " + getSalary()
+		+ "\nhiredDay is " + getHiredDay()
+		+ "\ntitle is " + getTitle();
 	}
 }
 
@@ -219,11 +270,7 @@ class MyDate{
 
 	// No-arg constructor can get the current tine.
 	MyDate() {
-		GregorianCalendar myDate1 = new GregorianCalendar();
-		this.year = myDate1.get(GregorianCalendar.YEAR);
-		this.month = myDate1.get(GregorianCalendar.MONTH) + 1;
-		this.day = myDate1.get(GregorianCalendar.DAY_OF_MONTH);		
-		System.out.println("The hired day is " + year + " "+ month + " " + day);
+		
 
 	}
 
@@ -263,5 +310,16 @@ class MyDate{
 	// The method can set the elapsed time.
 	public void setDate(long elapsedTime) {
 		this.myElapsedTime = elapsedTime;
-	} 
+	}
+
+	public String getDate(){
+		StringBuilder a = new StringBuilder();
+		GregorianCalendar myDate1 = new GregorianCalendar();
+		this.year = myDate1.get(GregorianCalendar.YEAR);
+		this.month = myDate1.get(GregorianCalendar.MONTH) + 1;
+		this.day = myDate1.get(GregorianCalendar.DAY_OF_MONTH);	
+		a.append(year + " " + month + " " + day);	
+		String op = new String(a);
+		return op;
+	}
 }
